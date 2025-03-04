@@ -7,4 +7,4 @@ A little about me:
 - I am taking STATS 220 because I want to be able to use these tools to investigate mental health.
 - I am interested in learning about tools and techniques to further investigate research/data in improving mental health
 
-A meme that captures how I currently feel about my university studies is ! [] (https://tenor.com/en-GB/view/dustin-poirier-justin-gaethje-gif-288722771280238471)
+A meme that captures how I currently feel about my university studies is ! [] (https://media1.tenor.com/m/IUTFxGVCVFEAAAAd/dustin-dustin-poirier.gif)
