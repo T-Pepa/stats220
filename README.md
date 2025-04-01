@@ -3,7 +3,7 @@
   My name is Tevita Pepa and this is repo for **Stats 220**.  
 
 ## 5 Fun Facts about me
-1. I am a *Seventh-Day Adventist* helping out in its ![Youth Ministry](https://www.instagram.com/adventistyouthnnz)
+1. I am a *Seventh-Day Adventist* helping out in its [Youth Ministry](https://www.instagram.com/adventistyouthnnz)
 2. I am a proud **Samoan/Tongan.** 
 3. I am an only child so it's *very* quiet in my household.
 4. I have a Youtube Channel dedicated my video edits [PazsPortfolio](https://www.youtube.com/@ItsTopazz/shorts)
