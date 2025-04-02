@@ -1,0 +1,103 @@
+---
+title: "Caffeinemania"
+subtitle: "STATS 220 Semester One 2025"
+author: "Tevita Pepa"
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+
+library(tidyverse)
+library(ggplot2)
+logged_data <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRe8AES_4cuUoNl9gLj1TW_NxLy-Oh0fDgLq1NIwMZlylDWUQBm3XRfVfcXzmANEWFshMGnNd36NZFd/pub?output=csv") %>% 
+  rename(drink_brand = 2,
+         drink_size = 3,
+         drink_reason = 4,
+         sugar_free = 5,
+         prior_drinks = 6,
+         drink_symptoms = 7,
+         energy_scale = 8)
+how_many <- length(logged_data$energy_scale)
+
+num_yes <- sum(logged_data$sugar_free == "Yes")
+num_no <- sum(logged_data$sugar_free == "No")
+
+most_common <- logged_data %>%
+  count(drink_brand,sort = TRUE)%>%
+  slice(1)
+
+```
+
+```{css echo= FALSE}
+h2{
+  font-family: 'Reactive Anchor', sans-serif;
+  color: #b7f791;
+  background-color: #70b04a;
+  font-size: 40px;
+  padding: 20px;
+  font-weight: normal;
+  text-shadow: 1px 1px 0px black;
+}
+h3{
+   font-family: 'Reactive Anchor', sans-serif;
+  color: #b7f791;
+  background-color: #70b04a;
+  font-size: 35px;
+  padding: 10px;
+  font-weight: normal;
+  text-shadow: 1px 1px 0px black;
+}
+body{
+  font-size: 12pt;
+  font-family: 'Avenir Next', sans-serif;
+  color:black;
+  background:linear-gradient(90deg, #b7f791, #87e84e);
+  padding: 10px;
+}
+```
+
+## Impact of Energy Drink brand/sugar-free options on energy levels
+
+In this study, I examined the impact of energy drinks of varying brands and sugar-free options to explain whether they had an impact on my energy levels.
+
+The bar charts illustrate my energy levels on a scale of 1 (no effect) to 10 (too much). 
+
+### Sugar-Free Plot
+The colours in graph illustrate the proportion of scores that were sugar-free (blue) or full-sugar (red) energy drinks.
+
+
+On average, I had `r num_yes` sugar-free drinks. 
+Whereas the number of sugared energy drinks I had was `r num_no`.
+
+```{r}
+ggplot(data = logged_data) +
+    geom_bar(aes(x = energy_scale, fill = sugar_free)) +
+  labs(title = "Energy Levels! Sugar-free vs Sugared",
+       subtitle = "Comparing the distribution of sugar-free/sugared energy drinks across energy levels",
+       caption = "Source: Caffeinemania",
+       x = "Energy Scale (1 = no effect, 10 = too much",
+       y = "Count")
+```
+
+
+**Note: Can see that the only 10 scores are sugared drinks!**
+
+### Brand Plot
+Here is my bar chart for my energy scores across energy drink brands. The colours in this graph represent the proportion of socres linked to specific brands. 
+
+Out of the `r how_many` energy drinks I had, `r most_common$n[1]` of them were `r most_common$drink_brand[1]`.
+
+```{r}
+ggplot(data = logged_data) +
+  geom_bar(aes(x = energy_scale, fill = drink_brand))+
+  labs(title = "Energy Levels Brands Warfare",
+       subtitle = "Comparing the distribution of energy drink brand across energy levels",
+       caption = "Source: Caffeinemania",
+       x = "Energy Scale (1 = no effect, 10 = too much",
+       y = "Count")
+```
+
+
+**Note: Can see that the only 10 scores are drinks from V and Rockstar!**
